@@ -1,12 +1,11 @@
 import {
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
   CreateDateColumn,
   DeleteDateColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 import { EntityConstant } from 'src/constants/entity.constant';
-
 
 export abstract class BaseEntity {
   @PrimaryGeneratedColumn('uuid')
