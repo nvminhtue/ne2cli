@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { EntityNotFoundError, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
+import { EntityNotFoundError } from 'typeorm/error/EntityNotFoundError'
+
+// import { ErrorTypesConstant } from 'src/constants/errors.constant'
 
 import { CreateSampleDTO } from './dto/create-sample.dto';
 import { UpdateSampleDTO } from './dto/update-sample.dto';
@@ -15,7 +18,7 @@ export class SampleService {
   async getSample(id: string): Promise<SampleEntity> {
     const sample: SampleEntity = await this.sampleRepo.createQueryBuilder().where({ id }).getOne();
     if (!sample) {
-      throw new EntityNotFoundError(SampleEntity.name, 'high')
+      throw new EntityNotFoundError(SampleEntity.name, undefined)
     }
     return sample;
   }

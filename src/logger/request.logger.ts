@@ -1,4 +1,4 @@
-import { Injectable, CanActivate, ExecutionContext, Inject, Logger } from '@nestjs/common';
+import { CanActivate, ExecutionContext, Inject, Injectable, Logger } from '@nestjs/common';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
 import { CurrentContext } from 'src/utils/current-context.util';

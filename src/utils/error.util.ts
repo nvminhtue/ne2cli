@@ -29,20 +29,14 @@ export class ErrorUtil {
   static badRequest(
     errorType: string,
     property?: string,
-    entity?: string,
-    indexes?: number[],
+    entity: string = null,
     payload?: object,
   ): ErrorDTO | ErrorDTO[] {
     let codeAndMessage = ErrorTypesConstant[errorType];
     if (codeAndMessage instanceof Function) {
       codeAndMessage = codeAndMessage(payload);
     }
-    if (Array.isArray(indexes)) {
-      return indexes.map(
-        index => plainToClass(ErrorDTO, { entity, property, index, ...codeAndMessage }),
-      );
-    }
-    return plainToClass(ErrorDTO, { entity, property, index: indexes, ...codeAndMessage });
+    return plainToClass(ErrorDTO, { entity, property, ...codeAndMessage });
   }
 
   static queryFailedError(exception, errorCode: number, entity: string): ErrorDTO {

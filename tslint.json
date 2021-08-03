@@ -51,9 +51,14 @@
             "order": 2
           },
           {
+            "name": "local import",
+            "match": "^test.*",
+            "order": 3
+          },
+          {
             "name": "relative dir",
             "match": "^[.].*",
-            "order": 3
+            "order": 4
           },
           {
             "name": "node_modules",

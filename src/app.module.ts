@@ -25,6 +25,7 @@ function imports() {
   if (process.env.NODE_ENV === AppConstant.DevEnv) {
     return ModuleList.API
   }
+  return ModuleList.API
 }
 
 @Module({
