@@ -25,8 +25,9 @@ export class SampleController {
   constructor(private readonly appService: SampleService) { }
 
   @Get()
-  getHello(): string {
-    return 'HELLO';
+  async getAll(): Promise<SampleDTO[]> {
+    const sample = await this.appService.getSamples();
+    return plainToClass(SampleDTO, sample);
   }
 
   @Get('/:id')
@@ -44,7 +45,7 @@ export class SampleController {
   }
 
   @Post()
-  async create(@Body('sample') createSamePleDTO: CreateSampleDTO): Promise<SampleDTO> {
+  async create(@Body() createSamePleDTO: CreateSampleDTO): Promise<SampleDTO> {
     const sample = await this.appService.create(createSamePleDTO);
     return plainToClass(SampleDTO, sample);
   }

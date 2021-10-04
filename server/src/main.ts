@@ -19,6 +19,10 @@ import { CurrentContext } from './utils/current-context.util';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     logger: WinstonModule.createLogger(LoggerOption),
+    cors: {
+      credentials: true,
+      origin: process.env.CLIENT_URL
+    }
   });
   app.useGlobalPipes(
     new ValidationPipe({
@@ -39,6 +43,6 @@ async function bootstrap() {
   app.use(CurrentContext.middleware);
 
   ProcessLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
-  await app.listen(3000, 'localhost');
+  await app.listen(process.env.PORT, process.env.APP_DOMAIN);
 }
 bootstrap();
