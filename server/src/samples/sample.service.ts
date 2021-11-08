@@ -15,6 +15,15 @@ export class SampleService {
     @InjectRepository(SampleEntity)
     private sampleRepo: Repository<SampleEntity>,
   ) { }
+  async getSamples(): Promise<SampleEntity[]> {
+    const samples: SampleEntity[] = await this.sampleRepo
+      .createQueryBuilder()
+      .where('SampleEntity.deleted IS NULL')
+      .getMany();
+
+    return samples;
+  }
+
   async getSample(id: string): Promise<SampleEntity> {
     const sample: SampleEntity = await this.sampleRepo.createQueryBuilder().where({ id }).getOne();
     if (!sample) {

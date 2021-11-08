@@ -10,3 +10,12 @@
 - [x] Jest + Chai
 - [x] TSLint
 - [x] Aliased with tsconfig-paths
+
+## NextJS
+
+:rocket: `Technology inside`
+
+- [x] NextJS with SSR Configs
+- [x] Redux and persist storage
+- [x] Saga, Fomik, Axios and other bundle for validate/request API
+- [x] ESLint
