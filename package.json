@@ -2,7 +2,27 @@
   "name": "ne2cli",
   "version": "0.0.1",
   "description": "NextJs + NestJs CLI",
+  "bin": {
+    "@nvminhtue/ne2cli": "bin/ne2cli",
+    "ne2cli": "bin/ne2cli"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "cli",
+    "ne2cli"
+  ],
   "author": "nvminhtue",
   "private": true,
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "arg": "^5.0.1",
+    "esm": "^3.2.25",
+    "execa": "5.0.0",
+    "inquirer": "^8.2.0",
+    "listr": "^0.14.3",
+    "ncp": "^2.0.0",
+    "pkg-install": "^1.0.0"
+  }
 }
